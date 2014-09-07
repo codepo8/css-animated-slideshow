@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Schöndeutsch</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+  <style type="text/css">
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background: #333;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  }
+  #refresh {
+    display: none;
+  }
+  header {
+    position: relative;
+    display: block;
+    background: #369;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 2em;
+    overflow: auto;
+  }
+  h1 {
+    font-size: 2vw;
+    font-weight: normal;
+    padding: 5px 10px;
+  }
+  #dingsda {
+    font-size: 10vw;
+    color: #fff;
+    text-shadow: 2px 2px 5px #000;
+    text-align: center;
+  }
+  #newterm {
+    font-size: 2vw;
+    border: none;
+    background: #393;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 2em auto;
+    display: block;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+  header a {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    color: #fff;
+    font-size: 3vw;
+    width: 4vw;
+    height: 4vw;
+
+    display: block;
+    text-decoration: none;
+    background: lime;
+    text-shadow: 2px 2px 1px #666;
+    text-align: center;
+    border-radius: 50% 50%;
+  }
+
+  @media only screen and (min-width:400px) {
+    
+  }
+
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Schöndeutsch</h1>
+    <a href="#help">?</a>
+    <button id="refresh">get new data</button>
+  </header>
+  <section>
+    <p id="dingsda"></p>
+  </section>
+  <footer>
+    <p><button id="newterm">Gib mir mehr</button></p>
+  </footer>
+<script>
+  var terms = [
+    'Auslegeware',
+    'nassforsch',
+    'kinkerlitzchen',
+    'pillepalle'
+  ];
+  var output = document.querySelector('#dingsda');
+  var refresh = document.querySelector('#refresh');
+  var newterm = document.querySelector('#newterm');
+
+  function seedterm() {
+    output.innerHTML = terms[parseInt(Math.random() * (terms.length - 1), 10)];
+  } 
+  newterm.addEventListener('click', seedterm, false);
+  seedterm();
+</script>
+</body>
+</html>
